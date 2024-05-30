@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <div className="wrapper overflow-y-hidden  mx-auto 2xl:px-8 h-[5000px] max-w-screen-2xl ">
-      <header className="w-full max-sm:px-4 xl:p-6 mx-auto ">
+      <header className="w-full max-sm:px-4 xl:p-6 md:px-4 mx-auto ">
         <nav className="flex flex-row items-center justify-between">
           <div className="relative text-xl font-semibold text-center cursor-pointer logo basis-1/6">
             CoffeeStyle.
@@ -147,7 +147,7 @@ const App = () => {
         </nav>
       </header>
 
-      <main className="w-full max-sm:p-2 max-md:p-2 xl:p-6 2xl:p-6  mx-auto max-w-screen-2xl">
+      <main className="w-full max-sm:p-2 md:p-2 xl:p-6 2xl:p-6  mx-auto ">
         <div className="relative h-[550px] w-full flex justify-center items-center">
           <div className="overlay absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.9)] to-[rgba(0,0,0,0.2)"></div>
           <div
