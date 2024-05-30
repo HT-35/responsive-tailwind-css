@@ -7,8 +7,6 @@ const SkeletonCard = () => {
 };
 
 const Product = ({ nameProduct, url, price, title, content, number }) => {
-  console.log("url:", url);
-
   return (
     <>
       {(nameProduct || title) && url && (price || number) && (
@@ -19,7 +17,7 @@ const Product = ({ nameProduct, url, price, title, content, number }) => {
           >
             <div className="absolute inset-0 overlay group-hover:bg-gradient-to-t group-hover:from-[rgba(0,0,0,0.5)] group-hover:to-[rgba(0,0,0,0.1)]"></div>
             <div className="absolute hidden -translate-x-1/2 left-1/2 bottom-5 group-hover:block">
-              <Button full={true}>
+              <Button full="">
                 {content ? "READ THE FULL STORY" : "EXPLORE MUG"}
               </Button>
             </div>

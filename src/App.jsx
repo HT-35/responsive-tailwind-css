@@ -1,36 +1,153 @@
+import { useState } from "react";
 import Button from "./assets/components/button/Button";
 import DetailPage from "./assets/components/detailPage/DetailPage";
 import Line from "./assets/components/line/Line";
 import ListNewsStory from "./assets/components/news/ListNewsStory";
 import ListProduct from "./assets/components/product/ListProduct";
 
+import { useEffect } from "react";
+
+const menu = [
+  "HOME",
+  "PRODUCTS",
+  "BLOG",
+  "ABOUT",
+  "CONTACT",
+  "STYLEGUIDE",
+  "HUYTRAN",
+];
+
 const App = () => {
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    console.log(isActive);
+  }, [isActive]);
+
   return (
-    <div className="wrapper mx-auto px-8 h-[5000px]">
-      <header className="w-full p-6 mx-auto max-w-screen-2xl">
+    <div className="wrapper overflow-y-hidden  mx-auto 2xl:px-8 h-[5000px] max-w-screen-2xl ">
+      <header className="w-full max-sm:px-4 xl:p-6 mx-auto ">
         <nav className="flex flex-row items-center justify-between">
           <div className="relative text-xl font-semibold text-center cursor-pointer logo basis-1/6">
             CoffeeStyle.
           </div>
-          <div className="flex items-center justify-between gap-6 text-sm font-medium uppercase menu basis-3/6">
-            <span>HOME</span>
-            <span>PRODUCTS</span>
-            <span>BLOG</span>
-            <span>ABOUT</span>
-            <span>CONTACT</span>
-            <span>STYLEGUIDE</span>
-            <span>HUYTRAN</span>
+          <div className="cs-list-menu-item max-sm:hidden md:hidden xl:flex 2xl:flex">
+            {menu.map((item, index) => {
+              return (
+                <span
+                  key={index}
+                  className="top-menu-item sm:hidden md:hidden xl:flex 2xl:flex"
+                >
+                  {item}
+                </span>
+              );
+            })}
           </div>
-          <div className="flex items-center justify-center gap-2 text-sm font-medium text-center cart basis-1/6">
-            <i className="fa-solid fa-bag-shopping"></i>
-            <span>Cart</span>
+          <div className="flex items-center justify-center gap-2 p-4 text-sm font-medium text-center hover:cursor-pointer cart basis-1/6">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="stroke-2 size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+              />
+            </svg>
+
+            <span className="uppercase">Cart</span>
             <span className="w-6 text-center bg-orange-200 rounded-full ">
               7
             </span>
           </div>
+
+          {/*<div className="toggle menu-mobile hover:cursor-pointer  sm:block md:block lg:block xl:hidden ">
+            <button
+              onClick={() => setIsActive((active) => !active)}
+              className={`p-4   ${isActive ? "bg-gray-200" : ""} `}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            </button>
+            {isActive && (
+              <div className="absolute w-full h-50 bg-gray-200 left-0 z-50 transition-all duration-500 ease-in-out">
+                {menu.map((item, index) => {
+                  return (
+                    <span
+                      key={index}
+                      className="transition-all duration-500 ease-in-out relative w-full flex border-b-2 border-gray-400 border-opacity-80 flex-1  justify-center py-3 cursor-pointer hover:bg-gray-400 hover:text-white"
+                    >
+                      {item}
+                    </span>
+                  );
+                })}
+              </div>
+            )}
+          </div>*/}
+          <div className="toggle menu-mobile hover:cursor-pointer sm:block md:block lg:block xl:hidden">
+            <button
+              onClick={() => setIsActive((active) => !active)}
+              className={`p-4 transition-all duration-500 ease-in-out ${
+                isActive ? "bg-gray-200" : ""
+              }`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            </button>
+
+            <div
+              className={`transition-max-height duration-500 ease-in-out overflow-hidden ${
+                isActive ? "max-h-96" : "max-h-0"
+              }`}
+            >
+              <div
+                className={`absolute transition-all duration-500 ease-in-out w-full bg-gray-200 left-0 z-50 ${
+                  isActive ? "max-h-96" : "hidden"
+                }`}
+              >
+                {menu.map((item, index) => (
+                  <span
+                    key={index}
+                    className="transition-all duration-500 ease-in-out relative w-full flex border-b-2 border-gray-400 border-opacity-80 flex-1 justify-center py-3 cursor-pointer hover:bg-gray-400 hover:text-white"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </nav>
       </header>
-      <main className="w-full p-6 mx-auto max-w-screen-2xl">
+
+      <main className="w-full max-sm:p-2 max-md:p-2 xl:p-6 2xl:p-6  mx-auto max-w-screen-2xl">
         <div className="relative h-[550px] w-full flex justify-center items-center">
           <div className="overlay absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.9)] to-[rgba(0,0,0,0.2)"></div>
           <div
@@ -40,9 +157,17 @@ const App = () => {
             }}
           ></div>
           <div className="absolute grid gap-6 text-center text-white top-14">
-            <h6 className="text-xl">BEST PLACE TO BUY COFFEE</h6>
-            <h1 className="text-5xl font-bold">Coffee Mugs</h1>
-            <h6 className="text-xl">
+            <h6 className="text-xl max-sm:text-sm max-md:text-base xl:text-xl 2xl:text-xl">
+              BEST PLACE TO BUY COFFEE
+            </h6>
+            {/*<h1 className=" 2xl:text-5xl max-xl:text-5xl xl:text-5xl max-sm:text-3xl max-md:text-4xl  font-bold">
+              Coffee Mugs
+            </h1>*/}
+            <h1 className="text-5xl 2xl:text-5xl xl:text-5xl max-xl:text-5xl max-md:text-4xl max-sm:text-3xl font-bold">
+              Coffee Mugs
+            </h1>
+
+            <h6 className="text-xl max-sm:text-sm max-md:text-base xl:text-xl 2xl:text-xl">
               The most versatile furniture system ever created. Designed to fit
               your life, made to move and grow.
             </h6>
@@ -52,7 +177,8 @@ const App = () => {
           </div>
         </div>
         <Line>OUR COFFEE STORY</Line>
-        <div className="flex items-center justify-center gap-8 content max-w-screen-2xl">
+
+        <div className="xl:flex 2xl:flex max-sm:grid grid-cols-1 xl:items-center xl:justify-center 2xl:items-center 2xl:justify-center gap-8 content max-w-screen-2xl">
           <div className="video basis-1/2">
             <video
               autoPlay
@@ -85,6 +211,7 @@ const App = () => {
             </span>
           </div>
         </div>
+
         <Line>FEATURED MUGS</Line>
         <div className="FEATURED-MUGS h-[540px] w-full flex justify-center items-center gap-8">
           <div className="basis-1/2 w-full h-full bg-no-repeat bg-cover object-cover  bg-[url('https://coffee-style-trungquandev.web.app/img/featured-mug-01.jpg')]"></div>

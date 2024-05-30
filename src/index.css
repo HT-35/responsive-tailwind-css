@@ -1,8 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
+    font-family: "Poppins", sans-serif;
+    @apply transition-all;
+  }
+}
+
+@layer components {
+  .top-menu-item {
+    @apply relative hover:text-gray-800 mx-2 py-2 text-sm text-gray-500 cursor-pointer after:absolute after:left-0 after:bottom-0 after:bg-slate-900 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:ease-in-out after:duration-300;
+  }
+
+  .cs-list-menu-item {
+    @apply items-center justify-between gap-2 text-sm font-medium uppercase basis-3/6;
+  }
+
+  /* styles.css */
+  .max-h-0 {
+    max-height: 0;
+  }
+
+  .max-h-screen {
+    max-height: 100vh; /* hoặc bất kỳ giá trị nào phù hợp với chiều cao menu của bạn */
   }
 }

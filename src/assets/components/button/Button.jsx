@@ -17,7 +17,7 @@ const Button = ({ bgText, full, ...Props }) => {
 
 Button.propTypes = {
   Props: PropTypes.object,
-  full: PropTypes.bool,
+  full: PropTypes.string,
   bgText: PropTypes.string,
 };
 
