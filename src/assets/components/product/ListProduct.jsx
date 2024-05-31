@@ -1,5 +1,7 @@
 import Product from "./Product";
 
+import PropTypes from "prop-types";
+
 const listProduct = [
   {
     id: 1,
@@ -57,13 +59,25 @@ const listProduct = [
   },
 ];
 
-const ListProduct = () => {
+const ListProduct = ({ halfHeight }) => {
   return (
-    <div className="grid grid-cols-3 gap-5 more-product">
+    <div
+      className="grid grid-cols-3 gap-3 more-product
+                    md:grid-cols-3
+                    md:gap-3
+                    max-md:grid-cols-2
+                    max-md:gap-3
+                    sm:grid-cols-2
+                    sm:gap-3
+                    max-sm:grid-cols-2
+    
+    "
+    >
       {listProduct.map((item) => {
         const { id, nameProduct, price, url } = item;
         return (
           <Product
+            halfHeight={halfHeight}
             key={id}
             nameProduct={nameProduct}
             price={price}
@@ -73,6 +87,10 @@ const ListProduct = () => {
       })}
     </div>
   );
+};
+
+ListProduct.propTypes = {
+  halfHeight: PropTypes.number,
 };
 
 export default ListProduct;

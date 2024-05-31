@@ -290,13 +290,7 @@ max-md:mt-10"
         <Line>BUY 2 MUGS AND GET A COFFEE MAGAZINE FREE</Line>
         <ListNewsStory halfHeight={halfHeight}></ListNewsStory>
 
-        <div
-          className="w-full min-h-[390px] mb-1 bg-[#1d1f2e] flex flex-col   justify-start items-center 
-        
-        max-md:min-h-[350px]
-        max-md:mb-4
-        "
-        >
+        <div className="w-full h-[350px] bg-[#1d1f2e] flex flex-col   justify-start items-center min-h-[300px]">
           <Line margin="my-[50px]">SIGN UP AND GET FREE COFFEE BAGS</Line>
           <h1 className="mb-5 text-3xl text-white"> Coffee Updates</h1>
           <div
@@ -317,27 +311,6 @@ max-md:mt-10"
             <Button full="max-w-[200px]">SUBSCRIBE</Button>
           </div>
         </div>
-        {/*<div
-          className="end 
-
-
-         max-xl:h-[80px]
-        max-xl:mt-1
-
-        max-lg:h-[80px]
-        max-lg:mt-1
-
-
-        max-md:h-[80px]
-        max-md:mt-1
-
-          sm:h-[80px]
-         sm:mt-1
-
-        max-sm:h-[80px]
-        max-sm:mt-52
-        "
-        ></div>*/}
       </main>
     </div>
 

@@ -1,5 +1,7 @@
 import Product from "../product/Product";
 
+import PropTypes from "prop-types";
+
 const story = [
   {
     id: 1,
@@ -29,9 +31,20 @@ const story = [
   },
 ];
 
-const ListNewsStory = () => {
+const ListNewsStory = ({ halfHeight }) => {
   return (
-    <div className="grid grid-cols-3 gap-10 mb-20">
+    <div
+      className="grid grid-cols-3  mb-10 
+    
+    md:gap-y-9
+    md:gap-6
+    md:grid-cols-2
+
+    max-md:gap-6
+    max-md:grid-cols-1
+    
+    "
+    >
       {story.map((item) => {
         const { id, url, title, content, number } = item;
         return (
@@ -41,11 +54,16 @@ const ListNewsStory = () => {
             title={title}
             content={content}
             number={number}
+            halfHeight={halfHeight}
           ></Product>
         );
       })}
     </div>
   );
+};
+
+ListNewsStory.propTypes = {
+  halfHeight: PropTypes.number,
 };
 
 export default ListNewsStory;

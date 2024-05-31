@@ -24,8 +24,4 @@
   .max-h-0 {
     max-height: 0;
   }
-
-  .max-h-screen {
-    max-height: 100vh; /* hoặc bất kỳ giá trị nào phù hợp với chiều cao menu của bạn */
-  }
 }
